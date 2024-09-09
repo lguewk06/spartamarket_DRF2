@@ -1,4 +1,5 @@
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User           # 유저 DB 충돌일어남
+from .models import User
 from rest_framework import serializers
 
 
@@ -12,7 +13,7 @@ class SignupSerializer(serializers.ModelSerializer):
 
         extra_kwargs = {
             'gender': {'required': False},
-            'bio': {'required': False}
+            'intro': {'required': False}
         }
 
     def validate_username(self, value):
@@ -34,7 +35,7 @@ class SignupSerializer(serializers.ModelSerializer):
             nickname=validated_data['nickname'],
             birthday=validated_data['birthday'],
             gender=validated_data.get('gender', ''),
-            bio=validated_data.get('bio', '')
+            intro=validated_data.get('intro', '')
         )
         user.set_password(validated_data['password'])  # 비밀번호 해시 처리
         user.save()
