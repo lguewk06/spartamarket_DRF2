@@ -30,7 +30,7 @@ class SignupSerializer(serializers.ModelSerializer):
             username=validated_data['username'],
             email=validated_data['email'],
             first_name=validated_data['first_name'],
-            last_name=validated_data['first_name'],
+            last_name=validated_data['last_name'],
             nickname=validated_data['nickname'],
             birthday=validated_data['birthday'],
             gender=validated_data.get('gender', ''),
