@@ -40,3 +40,9 @@ class SignupSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])  # 비밀번호 해시 처리
         user.save()
         return user
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = "__all__"
